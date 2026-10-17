@@ -1,0 +1,21 @@
+{
+    "header" :
+    {
+        "platform" : "minilogue-xd",
+        "module" : "osc",
+        "api" : "1.1-0",
+        "dev_id" : 0,
+        "prg_id" : 0,
+        "version" : "1.3-0",
+        "name" : "HyperSaw",
+        "num_param" : 6,
+        "params" : [
+            ["Wave A",      0,   9, ""],
+            ["Wave B",      0,   9, ""],
+            ["Wave C",      0,   9, ""],
+            ["Oct B",      -2,   2, "%"],
+            ["Oct C",      -2,   2, "%"],
+            ["Layer Bal", -100, 100, "%"]
+          ]
+    }
+}
