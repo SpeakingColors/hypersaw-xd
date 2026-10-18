@@ -1,5 +1,7 @@
 # HyperSaw · minilogue xd user oscillator
 
+<img src="assets/icon.svg" width="96" align="right" alt="icon">
+
 Three layers of JP-8000 style supersaw in one oscillator, for the KORG minilogue xd.
 Each layer has 7 detuned voices and its own waveform, so you can stack saws, squares, glass and a breathy "Ah" vocal into huge trance and hardstyle leads.
 

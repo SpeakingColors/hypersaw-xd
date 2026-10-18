@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="HS icon">
+  <rect width="128" height="128" rx="26" fill="#3b3116"/>
+  <path d="M24 78 L30 30 L56 52 L72 52 L98 30 L104 78 Q104 106 64 106 Q24 106 24 78 Z" fill="#e6c255"/>
+  <path d="M33 44 L36 66 L48 56 Z M95 44 L92 66 L80 56 Z" fill="#3b3116" opacity=".55"/>
+  <circle cx="50" cy="76" r="5" fill="#3b3116"/><circle cx="78" cy="76" r="5" fill="#3b3116"/>
+  <path d="M60 86 L68 86 L64 91 Z" fill="#f6de97"/>
+  <text x="64" y="123" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#f6de97">HS</text>
+</svg>
