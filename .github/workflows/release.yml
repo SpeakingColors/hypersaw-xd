@@ -1,0 +1,38 @@
+name: Release
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag, for example v1.3.0'
+        required: false
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package
+        env:
+          TAGIN: ${{ github.event.inputs.tag }}
+        run: |
+          tag="${TAGIN:-$GITHUB_REF_NAME}"
+          test -n "$tag" || { echo "no tag given, nothing to publish"; exit 0; }
+          mkdir -p out/HyperSaw
+          cp dist/hypersaw.mnlgxdunit packaging/INSTALL.txt LICENSE out/HyperSaw/
+          (cd out/HyperSaw && sha256sum * > SHA256SUMS)
+          (cd out && zip -r HyperSaw_${tag}.zip HyperSaw)
+          echo "TAG=$tag" >> $GITHUB_ENV
+      - name: Publish pre-release
+        if: env.TAG != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          f=out/HyperSaw_${TAG}.zip
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$f" --clobber
+          else
+            gh release create "$TAG" "$f" --prerelease --target main --title "HyperSaw $TAG" --notes "Unit built from this repo's source. See INSTALL.txt inside the zip."
+          fi
