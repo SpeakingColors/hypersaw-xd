@@ -1,0 +1,63 @@
+{
+ "name": "HyperSaw",
+ "version": "1.3",
+ "device": "minilogue xd",
+ "kind": "user oscillator",
+ "file": "hypersaw.mnlgxdunit",
+ "slot": "User Oscillator",
+ "where": "Multi Engine, USR, HyperSaw",
+ "repo": "https://github.com/SpeakingColors/hypersaw-xd",
+ "tagline": "Three layers of JP-8000 style supersaw in one oscillator. Each layer has 7 detuned voices and its own waveform, for trance and hardstyle leads.",
+ "screen_note": "The xd shows typeless parameters (Wave A, B and C) one higher than the number the code uses, so they read 1 to 10. Oct B, Oct C and Layer Bal show a percent sign.",
+ "knobs": [
+  {
+   "name": "SHAPE",
+   "range": "knob",
+   "what": "Detune, JP-8000 curve. The xd's LFO and mod routing can sweep it."
+  },
+  {
+   "name": "SHIFT + SHAPE",
+   "range": "knob",
+   "what": "Mix: centre voice against the 6 side voices."
+  }
+ ],
+ "params": {
+  "Wave A": "Waveform of layer A (list below).",
+  "Wave B": "Waveform of layer B (1 = layer off).",
+  "Wave C": "Waveform of layer C (1 = layer off).",
+  "Oct B": "Octave of layer B against layer A. The screen shows %, read it as octaves.",
+  "Oct C": "Octave of layer C against layer A. The screen shows %, read it as octaves.",
+  "Layer Bal": "-100% = only layer A, 0% = equal, +100% = only layers B and C."
+ },
+ "enums": {
+  "Wave A, B and C": [
+   "Off",
+   "Supersaw",
+   "Square",
+   "Pulse 25%",
+   "Pulse 12%",
+   "Triangle",
+   "Sine",
+   "Glass 1 (bright)",
+   "Glass 2 (bell)",
+   "Vox Ah (breathy vocal)"
+  ]
+ },
+ "notes": [
+  "If all three layers are Off (screen 1), layer A plays Supersaw so you never get silence."
+ ],
+ "starters": [
+  "Classic JP lead: Wave A 2 (Supersaw), Wave B 1, Wave C 1, Shape about 60%, Shift+Shape about 70%.",
+  "Hypersaw: Wave A 2, Wave B 2 with Oct B -1, Wave C 2 with Oct C +1, Layer Bal 0.",
+  "Trance pad: Wave A 2, Wave B 3 (Square) with Oct B -1, Wave C 8 (Glass 1) with Oct C +1, Layer Bal -30.",
+  "Hardstyle Ah lead: Wave A 10 (Vox Ah), Wave B 2, Wave C 3 (Square) with Oct C -1, Layer Bal -20, Shape about 70%, Shift+Shape about 60%, short decay, sustain about 35%.",
+  "Pure choir: Wave A 10 only, Shape about 25%, slow attack."
+ ],
+ "problems": "3 layers x 7 voices x 4 notes is the heavy case. If it crackles or drops out, set Wave C to 1 (Off) first, then Wave B.",
+ "status": [
+  "Version 1.3. The unit in dist/ was built from this repo's source and its manifest matches manifest.json.",
+  "No test on a real minilogue xd is recorded in this repo yet. Treat it as a test build and tell us what you hear.",
+  "Linux install steps are not tested yet.",
+  "Pre-release on GitHub."
+ ]
+}

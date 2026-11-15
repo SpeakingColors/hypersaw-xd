@@ -1,9 +1,91 @@
-HyperSaw, minilogue xd user unit (Studio 87)
+HyperSaw 1.3, minilogue xd user oscillator (Studio 87)
 
-1. Open KORG minilogue xd Sound Librarian and connect the xd by USB.
-2. Drag hypersaw.mnlgxdunit into a free User Oscillator slot.
-3. Send to the synth.
-4. On the xd: Multi Engine → USR → HyperSaw.
+Three layers of JP-8000 style supersaw in one oscillator. Each layer has 7
+  detuned voices and its own waveform, for trance and hardstyle leads.
 
+WHAT YOU NEED
+  - A KORG minilogue xd with a USB cable to your computer
+  - Windows or Mac: the KORG minilogue xd Sound Librarian
+  - Linux: KORG's logue-cli (see the Linux section, not tested yet)
+
+INSTALL (Windows or Mac)
+  1. Open the zip and keep the hypersaw.mnlgxdunit file as it is. It is
+     itself a zip: do not rename it or open it.
+  2. Open the Sound Librarian and connect the synth by USB.
+  3. Drag hypersaw.mnlgxdunit into a free User Oscillator slot.
+  4. Send to the synth and wait until it finishes.
+  5. On the synth: Multi Engine, USR, HyperSaw.
+
+INSTALL (Linux, not tested yet)
+  The Sound Librarian has no Linux version. KORG's command line tool
+  logue-cli can load units (64-bit Linux only; get it from the logue-sdk
+  repo, folder tools/logue-cli, script get_logue_cli_linux.sh).
+  1. logue-cli check -u hypersaw.mnlgxdunit
+  2. logue-cli probe -l
+     Use the input port ending in KBD/KNOB and the output port ending in
+     SOUND. The other ports are the old MIDI DIN jacks.
+  3. logue-cli load -u hypersaw.mnlgxdunit -i <in port> -o <out port>
+     (this uses the first free slot)
+  If load fails on Linux, that is a known issue in KORG's repo (#37).
+
+CONTROLS (as the synth screen shows them)
+  The xd shows typeless parameters (Wave A, B and C) one higher than the
+    number the code uses, so they read 1 to 10. Oct B, Oct C and Layer Bal
+    show a percent sign.
+
+  - SHAPE [knob]: Detune, JP-8000 curve. The xd's LFO and mod routing can
+      sweep it.
+  - SHIFT + SHAPE [knob]: Mix: centre voice against the 6 side voices.
+  - Wave A [1 to 10]: Waveform of layer A (list below).
+  - Wave B [1 to 10]: Waveform of layer B (1 = layer off).
+  - Wave C [1 to 10]: Waveform of layer C (1 = layer off).
+  - Oct B [-2% to 2%]: Octave of layer B against layer A. The screen shows
+      %, read it as octaves.
+  - Oct C [-2% to 2%]: Octave of layer C against layer A. The screen shows
+      %, read it as octaves.
+  - Layer Bal [-100% to 100%]: -100% = only layer A, 0% = equal, +100% =
+      only layers B and C.
+
+Wave A, B and C values (screen shows 1 to 10):
+   1  Off
+   2  Supersaw
+   3  Square
+   4  Pulse 25%
+   5  Pulse 12%
+   6  Triangle
+   7  Sine
+   8  Glass 1 (bright)
+   9  Glass 2 (bell)
+  10  Vox Ah (breathy vocal)
+
+  If all three layers are Off (screen 1), layer A plays Supersaw so you
+    never get silence.
+
+STARTER SOUNDS
+  - Classic JP lead: Wave A 2 (Supersaw), Wave B 1, Wave C 1, Shape about
+      60%, Shift+Shape about 70%.
+  - Hypersaw: Wave A 2, Wave B 2 with Oct B -1, Wave C 2 with Oct C +1,
+      Layer Bal 0.
+  - Trance pad: Wave A 2, Wave B 3 (Square) with Oct B -1, Wave C 8 (Glass
+      1) with Oct C +1, Layer Bal -30.
+  - Hardstyle Ah lead: Wave A 10 (Vox Ah), Wave B 2, Wave C 3 (Square) with
+      Oct C -1, Layer Bal -20, Shape about 70%, Shift+Shape about 60%, short
+      decay, sustain about 35%.
+  - Pure choir: Wave A 10 only, Shape about 25%, slow attack.
+
+PROBLEMS
+  3 layers x 7 voices x 4 notes is the heavy case. If it crackles or drops
+    out, set Wave C to 1 (Off) first, then Wave B.
+
+STATUS
+  - Version 1.3. The unit in dist/ was built from this repo's source and its
+      manifest matches manifest.json.
+  - No test on a real minilogue xd is recorded in this repo yet. Treat it as
+      a test build and tell us what you hear.
+  - Linux install steps are not tested yet.
+  - Pre-release on GitHub.
+
+Source and updates: https://github.com/SpeakingColors/hypersaw-xd
 Free and open source (MIT). Collects nothing, no network.
-Not affiliated with or endorsed by KORG.
+Not affiliated with or endorsed by KORG. KORG and minilogue are trademarks of
+KORG Inc., used only to say which synth this works with.
